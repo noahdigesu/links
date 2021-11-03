@@ -54,23 +54,29 @@ $(document).on("click", "#try-again", function () {
 	location.reload();
 });
 
-var pupil = document.getElementsByClassName("eye-container");
-document.onmousemove = function () {
-	//get horizontal and vertical position of mouse
-	var x = (event.clientX * 200) / window.innerWidth;
-	var y = (event.clientY * 200) / window.innerHeight;
+if (
+	!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+		navigator.userAgent
+	)
+) {
+	var pupil = document.getElementsByClassName("eye-container");
+	document.onmousemove = function () {
+		//get horizontal and vertical position of mouse
+		var x = (event.clientX * 200) / window.innerWidth;
+		var y = (event.clientY * 200) / window.innerHeight;
 
-	if (y <= 100) {
-		for (var i = 0; i < 2; i++) {
-			pupil[i].style.left = `${x}%`;
-			pupil[i].style.top = `${y}%`;
-			pupil[i].style.transform = `translate3D(-${x}%, -${y}%, 0)`;
+		if (y <= 100) {
+			for (var i = 0; i < 2; i++) {
+				pupil[i].style.left = `${x}%`;
+				pupil[i].style.top = `${y}%`;
+				pupil[i].style.transform = `translate3D(-${x}%, -${y}%, 0)`;
+			}
+		} else {
+			for (var i = 0; i < 2; i++) {
+				pupil[i].style.left = `${x}%`;
+				pupil[i].style.top = `100%`;
+				pupil[i].style.transform = `translate3D(-${x}%, -100%, 0)`;
+			}
 		}
-	} else {
-		for (var i = 0; i < 2; i++) {
-			pupil[i].style.left = `${x}%`;
-			pupil[i].style.top = `100%`;
-			pupil[i].style.transform = `translate3D(-${x}%, -100%, 0)`;
-		}
-	}
-};
+	};
+}
