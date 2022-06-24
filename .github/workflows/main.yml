@@ -22,5 +22,5 @@ jobs:
         remote-password: ${{ secrets.PASSWORD }}
         remote-path: ${{ secrets.DEST }}
         sync-delta-excludes: |
-          .git/
-          .gitignore
+          **/.git/
+          **/.gitignore
