@@ -9,19 +9,14 @@ jobs:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v2
-
     - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      uses: milanmk/actions-file-deployer@master
       with:
-        server: ${{ secrets.SERVER }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        port: ${{ secrets.PORT }}
-        # server-dir: ${{ secrets.DEST }}
-        dry-run: true # TODO remove later
-        exclude: |
+        remote-host: ${{ secrets.SERVER }}
+        remote-user: ${{ secrets.USERNAME }}
+        remote-password: ${{ secrets.PASSWORD }}
+        remote-path: ${{ secrets.DEST }}
+        sync-delta-excludes: |
           **/.git*
           **/.git*/**
           **/.idea/**
