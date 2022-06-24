@@ -9,6 +9,9 @@ jobs:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v2
+
     - name: 📂 Sync files
       uses: milanmk/actions-file-deployer@master
       with:
