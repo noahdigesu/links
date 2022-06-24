@@ -19,7 +19,7 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        server-dir: ${{ secrets.DEST }}
+        # server-dir: ${{ secrets.DEST }}
         dry-run: true # TODO remove later
         exclude: |
           **/.git*
