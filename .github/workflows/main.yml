@@ -23,5 +23,4 @@ jobs:
         remote-path: ${{ secrets.DEST }}
         sync-delta-excludes: |
           **/.git*
-          **/.git*/**
           **/.idea/**
