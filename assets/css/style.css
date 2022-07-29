@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:600,700");
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
@@ -21,37 +20,28 @@ h1 {
   font-size: 2.5em;
   font-weight: 700;
 }
-
 h1 img {
   width: 1em;
   margin-left: 0.15em;
 }
-
 h1 .eyes {
   content: "";
   display: inline-block;
   width: 90px;
   height: 60px;
   text-align: center;
-  -webkit-transform: scale(0.8);
-          transform: scale(0.8);
+  transform: scale(0.8);
   vertical-align: sub;
 }
-
 h1 .eyes .eye-container {
   content: "";
   display: inline-block;
   position: absolute;
   left: 5px;
   top: 50%;
-  -webkit-transform: translate3d(0, -50%, 0);
-          transform: translate3d(0, -50%, 0);
-  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform: translate3d(0, -50%, 0);
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-
 h1 .eyes .eye {
   content: "";
   z-index: 1;
@@ -59,13 +49,11 @@ h1 .eyes .eye {
   display: inline-block;
   overflow: hidden;
   background-color: white;
-  width: calc(90px / 2 - 7px);
+  width: 38px;
   height: 60px;
   border-radius: 100%;
-  -webkit-box-shadow: inset 0px 0px 5px 3px #a1a1a1;
-          box-shadow: inset 0px 0px 5px 3px #a1a1a1;
+  box-shadow: inset 0px 0px 5px 3px #a1a1a1;
 }
-
 h1 .eyes .eye .pupil {
   content: "";
   position: relative;
@@ -74,22 +62,19 @@ h1 .eyes .eye .pupil {
   height: 14px;
   border-radius: 100%;
 }
-
 h1 .eyes .eye .pupil::before {
   content: "";
   z-index: -1;
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate3d(-50%, -50%, 0);
-          transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
   width: 140%;
   height: 140%;
   border-radius: 100%;
-  background: linear-gradient(140deg, #652500 0%, #dbac00 100%);
-  border: 1px solid #652500;
+  background: linear-gradient(140deg, rgb(101, 37, 0) 0%, rgb(219, 172, 0) 100%);
+  border: 1px solid rgb(101, 37, 0);
 }
-
 h1 .eyes .eye .pupil::after {
   content: "";
   z-index: 9;
@@ -100,35 +85,28 @@ h1 .eyes .eye .pupil::after {
   height: 5px;
   background-color: white;
   border-radius: 100%;
-  -webkit-filter: blur(1px);
-          filter: blur(1px);
+  filter: blur(1px);
 }
 
 .centered {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .container {
   margin: 40px;
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-  -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr;
-  -webkit-column-gap: 3em;
-          column-gap: 3em;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  -moz-column-gap: 3em;
+       column-gap: 3em;
   row-gap: 0;
 }
-
 .container ul {
   list-style: none;
 }
-
 .container ul li a.button {
   opacity: 0;
   display: block;
@@ -140,23 +118,19 @@ h1 .eyes .eye .pupil::after {
   border-radius: 12px;
   text-align: center;
 }
-
 .container ul li a.button.long {
   width: auto;
   white-space: nowrap;
 }
-
 .container ul li:not(:first-of-type) {
   margin-top: 1.3em;
 }
-
 .container #medium-articles {
   position: relative;
   min-width: 560px;
   min-height: 64px;
   opacity: 0;
 }
-
 .container #medium-articles::before {
   content: "Medium Articles";
   position: absolute;
@@ -174,7 +148,6 @@ h1 .eyes .eye .pupil::after {
   padding: 10px 0;
   opacity: 0;
 }
-
 .alert.error p#try-again {
   border-radius: 12px;
   padding: 5px 30px;
@@ -209,15 +182,12 @@ h1 .eyes .eye .pupil::after {
     opacity: 1;
   }
 }
-
 @media only screen and (max-width: 960px) {
   .container {
-    -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
-    -ms-grid-rows: 2fr;
-        grid-template-rows: 2fr;
-    -webkit-column-gap: 0;
-            column-gap: 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr;
+    -moz-column-gap: 0;
+         column-gap: 0;
     row-gap: 4em;
   }
   #medium-articles {
@@ -230,5 +200,4 @@ h1 .eyes .eye .pupil::after {
     white-space: normal !important;
     max-width: 256px;
   }
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
