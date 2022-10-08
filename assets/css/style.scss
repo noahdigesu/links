@@ -14,7 +14,6 @@ body {
 	font-family: "Poppins", sans-serif;
 	font-weight: 600;
 	padding: 40px;
-	position: relative;
 	height: 100vh;
 	width: 100vw;
 }
@@ -22,81 +21,76 @@ body {
 h1 {
 	font-size: 2.5em;
 	font-weight: 700;
+}
 
-	img {
-		width: 1em;
-		margin-left: 0.15em;
-	}
+.eyes {
+	content: "";
+	display: inline-block;
+	width: 90px;
+	height: 60px;
+	text-align: center;
+	transform: scale(0.8);
+	vertical-align: sub;
 
-	.eyes {
+	.eye-container {
 		content: "";
 		display: inline-block;
-		width: 90px;
+		position: absolute;
+		left: 5px;
+		top: 50%;
+		transform: translate3d(0, -50%, 0);
+		transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	}
+
+	.eye {
+		content: "";
+		z-index: 1;
+		position: relative;
+		display: inline-block;
+		overflow: hidden;
+		background-color: white;
+		width: calc(90px / 2 - 7px);
 		height: 60px;
-		text-align: center;
-		transform: scale(0.8);
-		vertical-align: sub;
+		border-radius: 100%;
+		box-shadow: inset 0px 0px 5px 3px #a1a1a1;
 
-		.eye-container {
+		.pupil {
 			content: "";
-			display: inline-block;
-			position: absolute;
-			left: 5px;
-			top: 50%;
-			transform: translate3d(0, -50%, 0);
-			transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-		}
-
-		.eye {
-			content: "";
-			z-index: 1;
 			position: relative;
-			display: inline-block;
-			overflow: hidden;
-			background-color: white;
-			width: calc(90px / 2 - 7px);
-			height: 60px;
+			background-color: #2a1000;
+			width: 14px;
+			height: 14px;
 			border-radius: 100%;
-			box-shadow: inset 0px 0px 5px 3px #a1a1a1;
 
-			.pupil {
+			&::before {
 				content: "";
-				position: relative;
-				background-color: #2a1000;
-				width: 14px;
-				height: 14px;
+				z-index: -1;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate3d(-50%, -50%, 0);
+				width: 140%;
+				height: 140%;
 				border-radius: 100%;
+				background: linear-gradient(
+					140deg,
+					rgba(101, 37, 0, 1) 0%,
+					rgba(219, 172, 0, 1) 100%
+				);
+				border: 1px solid rgba(101, 37, 0, 1);
+			}
 
-				&::before {
-					content: "";
-					z-index: -1;
-					position: absolute;
-					top: 50%;
-					left: 50%;
-					transform: translate3d(-50%, -50%, 0);
-					width: 140%;
-					height: 140%;
-					border-radius: 100%;
-					background: linear-gradient(
-						140deg,
-						rgba(101, 37, 0, 1) 0%,
-						rgba(219, 172, 0, 1) 100%
-					);
-					border: 1px solid rgba(101, 37, 0, 1);
-				}
-
-				&::after {
-					content: "";
-					z-index: 9;
-					position: absolute;
-					top: 0;
-					left: 0;
-					width: 5px;
-					height: 5px;
-					background-color: white;
-					border-radius: 100%;
-					filter: blur(1px);
-				}
+			&::after {
+				content: "";
+				z-index: 9;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 5px;
+				height: 5px;
+				background-color: white;
+				border-radius: 100%;
+				filter: blur(1px);
 			}
 		}
 	}
@@ -122,7 +116,7 @@ h1 {
 
 		li {
 			a.button {
-				opacity: 0; // animation
+				opacity: 0; // changed when animating with ./assets/fade.js
 
 				display: block;
 				color: white;
@@ -149,7 +143,6 @@ h1 {
 		position: relative;
 		min-width: 560px;
 		min-height: 64px;
-		opacity: 0;
 
 		&::before {
 			content: "Medium Articles";
@@ -157,28 +150,6 @@ h1 {
 			top: -2em;
 			left: 1em;
 			color: #b0b0b0;
-		}
-	}
-}
-
-.alert {
-	&.error {
-		position: relative;
-		width: 100%;
-		text-align: center;
-		border-radius: 12px;
-		background: #ff5454;
-		padding: 10px 0;
-		opacity: 0;
-
-		p#try-again {
-			border-radius: 12px;
-			padding: 5px 30px;
-			background-color: white;
-			color: #ff5454;
-			cursor: pointer;
-			margin: 5px auto 0 auto;
-			width: fit-content;
 		}
 	}
 }
