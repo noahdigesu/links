@@ -14,8 +14,11 @@ body {
 	font-family: "Poppins", sans-serif;
 	font-weight: 600;
 	padding: 40px;
-	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: 100vw;
+	height: 100vh;
 }
 
 h1 {
@@ -96,20 +99,11 @@ h1 {
 	}
 }
 
-.centered {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-
 .container {
-	margin: 40px;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr;
-	column-gap: 3em;
-	row-gap: 0;
+	margin-top: 2rem;
+	display: flex;
+	row-gap: 1rem;
+	column-gap: 4rem;
 
 	ul {
 		list-style: none;
@@ -168,11 +162,13 @@ h1 {
 }
 
 @media only screen and (max-width: 960px) {
+	body {
+		height: auto;
+	}
+
 	.container {
-		grid-template-columns: 1fr;
-		grid-template-rows: 2fr;
-		column-gap: 0;
-		row-gap: 4em;
+		flex-direction: column;
+		row-gap: 4rem;
 	}
 
 	#medium-articles {
