@@ -1,3 +1,18 @@
+@font-face {
+  font-family: "Remboy";
+  src: url("../fonts/Remboy-Regular.woff2") format("woff2"), url("../fonts/Remboy-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("../fonts/CabinetGrotesk-Medium.woff2") format("woff2"), url("../fonts/CabinetGrotesk-Medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Clash Display";
+  src: url("../fonts/ClashDisplay-Bold.woff2") format("woff2"), url("../fonts/ClashDisplay-Bold.woff") format("woff");
+}
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -17,6 +32,7 @@
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  scrollbar-width: none;
 }
 
 body {
@@ -34,6 +50,7 @@ body {
 }
 
 body .border {
+  z-index: 10;
   border: 8px solid #f4ffaf;
   border-bottom: none;
   height: 100vh;
@@ -49,7 +66,7 @@ body .progress-container {
   bottom: 0;
   width: 100%;
   height: 8px;
-  background: black;
+  background: transparent;
 }
 
 body .progress-bar {
@@ -117,7 +134,7 @@ body .progress-bar {
   gap: 3rem;
   height: 100vh;
   color: white;
-  padding: 0 3rem 0 0;
+  padding: 0 6rem 0 0;
 }
 
 .card {
