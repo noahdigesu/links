@@ -54,9 +54,15 @@ body {
 	}
 }
 
+.marquee-abs {
+	position: absolute;
+	left: 6rem;
+	height: 100%;
+	transform: rotate(-90deg);
+}
+
 .marquee-container {
 	z-index: 20;
-	transform: rotate(-90deg);
 	position: relative;
     overflow: hidden;
     --offset: -20vw;

@@ -58,10 +58,16 @@ body .progress-bar {
   width: 0%;
 }
 
-.marquee-container {
-  z-index: 20;
+.marquee-abs {
+  position: absolute;
+  left: 6rem;
+  height: 100%;
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
+}
+
+.marquee-container {
+  z-index: 20;
   position: relative;
   overflow: hidden;
   --offset: -20vw;
