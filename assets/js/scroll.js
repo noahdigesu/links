@@ -12,3 +12,6 @@ function updateScrollProgress() {
 	var scrolled = (winScroll / width) * 100;
 	document.getElementById("myBar").style.width = scrolled + "%";
 }
+
+// Horizontal scroll
+const stop = HorizontalScroll();

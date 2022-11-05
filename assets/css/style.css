@@ -33,6 +33,7 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   scrollbar-width: none;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -131,7 +132,7 @@ body .progress-bar {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  gap: 3rem;
+  gap: 4rem;
   height: 100vh;
   color: white;
   padding: 0 6rem 0 0;
