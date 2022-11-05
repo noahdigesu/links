@@ -58,14 +58,29 @@ body .progress-bar {
   width: 0%;
 }
 
-.marquee {
-  width: 100vh;
-  height: auto;
-  position: relative;
-  left: 0;
-  bottom: 0;
+.marquee-container {
+  z-index: 20;
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
+  position: relative;
+  overflow: hidden;
+  --offset: -20vw;
+  --move-initial: calc(0% + var(--offset));
+  --move-final: calc(50% + var(--offset));
+}
+
+.marquee {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-transform: translate3d(var(--move-initial), 0, 0);
+          transform: translate3d(var(--move-initial), 0, 0);
+  -webkit-animation: marquee 5s linear infinite;
+          animation: marquee 5s linear infinite;
 }
 
 .marquee span {
@@ -74,8 +89,7 @@ body .progress-bar {
   font-family: "Remboy";
   font-weight: normal;
   font-style: normal;
-  float: left;
-  width: 50%;
+  min-width: 50%;
 }
 
 .cards {
@@ -152,19 +166,23 @@ body .progress-bar {
 
 @-webkit-keyframes marquee {
   0% {
-    left: -100%;
+    -webkit-transform: translate3d(var(--move-initial), 0, 0);
+            transform: translate3d(var(--move-initial), 0, 0);
   }
   100% {
-    left: 0%;
+    -webkit-transform: translate3d(var(--move-final), 0, 0);
+            transform: translate3d(var(--move-final), 0, 0);
   }
 }
 
 @keyframes marquee {
   0% {
-    left: -100%;
+    -webkit-transform: translate3d(var(--move-initial), 0, 0);
+            transform: translate3d(var(--move-initial), 0, 0);
   }
   100% {
-    left: 0%;
+    -webkit-transform: translate3d(var(--move-final), 0, 0);
+            transform: translate3d(var(--move-final), 0, 0);
   }
 }
 /*# sourceMappingURL=style.css.map */
