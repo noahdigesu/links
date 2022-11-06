@@ -59,6 +59,7 @@ body .border {
   position: fixed;
   left: 0;
   top: 0;
+  pointer-events: none;
 }
 
 body .progress-container {
@@ -73,6 +74,8 @@ body .progress-bar {
   height: 8px;
   background: #f4ffaf;
   width: 0%;
+  -webkit-transition: width 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: width 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .marquee-abs {
@@ -198,6 +201,15 @@ body .progress-bar {
   text-align: center;
   padding: 0.5rem 0;
   border-radius: 0.5rem;
+  border: 4px solid transparent;
+  -webkit-transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card a:hover {
+  background-color: black;
+  color: #f4ffaf;
+  border: 4px solid #f4ffaf;
 }
 
 @-webkit-keyframes marquee {

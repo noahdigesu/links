@@ -53,6 +53,7 @@ body {
 		position: fixed;
 		left: 0;
 		top: 0;
+		pointer-events: none;
 	}
 
 	/* The progress container (grey background) */
@@ -69,6 +70,7 @@ body {
 		height: 8px;
 		background: $yellow;
 		width: 0%;
+		transition: width .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	}
 }
 
@@ -159,6 +161,14 @@ body {
 		text-align: center;
 		padding: 0.5rem 0;
 		border-radius: 0.5rem;
+		border: 4px solid transparent;
+		transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+		&:hover {
+			background-color: black;
+			color: $yellow;
+			border: 4px solid $yellow;
+		}
 	}
 }
 
