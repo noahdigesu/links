@@ -88,7 +88,7 @@ body .progress-bar {
   position: absolute;
   left: 0;
   top: 0;
-  width: 30%;
+  width: 35%;
   height: 100%;
 }
 
@@ -130,7 +130,7 @@ body .progress-bar {
 
 .cards {
   position: absolute;
-  left: 30%;
+  left: 40%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
