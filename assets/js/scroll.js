@@ -1,9 +1,13 @@
 // Scroll progress
 window.onscroll = function () {
-	updateScrollProgress();
+	if (window.matchMedia("(max-width: 640px)").matches) {
+		updateScrollProgressMobile();
+	} else {
+		updateScrollProgressDesktop();
+	}
 };
 
-function updateScrollProgress() {
+function updateScrollProgressDesktop() {
 	var winScroll =
 		document.body.scrollLeft || document.documentElement.scrollLeft;
 	var width =
@@ -13,5 +17,12 @@ function updateScrollProgress() {
 	document.getElementById("myBar").style.width = scrolled + "%";
 }
 
-// Horizontal scroll
-const stop = HorizontalScroll();
+function updateScrollProgressMobile() {
+	var winScroll =
+		document.body.scrollTop || document.documentElement.scrollTop;
+	var height =
+		document.documentElement.scrollHeight -
+		document.documentElement.clientHeight;
+	var scrolled = (winScroll / height) * 100;
+	document.getElementById("myBar").style.width = scrolled + "%";
+}

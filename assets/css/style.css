@@ -247,4 +247,22 @@ body .progress-bar {
             transform: translate3d(var(--move-final), 0, 0);
   }
 }
+
+@media (max-width: 640px) {
+  body {
+    overflow-y: auto;
+  }
+  .marquee-abs {
+    display: none;
+  }
+  .cards {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: unset;
+    padding: 10rem 0;
+    height: auto;
+  }
+}
 /*# sourceMappingURL=style.css.map */

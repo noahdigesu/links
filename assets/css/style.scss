@@ -3,17 +3,17 @@ $yellow: #f4ffaf;
 @font-face {
 	font-family: "Remboy";
 	src: url("../fonts/Remboy-Regular.woff2") format("woff2"),
-	url("../fonts/Remboy-Regular.woff") format("woff");
+		url("../fonts/Remboy-Regular.woff") format("woff");
 }
 @font-face {
 	font-family: "Cabinet Grotesk";
 	src: url("../fonts/CabinetGrotesk-Medium.woff2") format("woff2"),
-	url("../fonts/CabinetGrotesk-Medium.woff") format("woff");
+		url("../fonts/CabinetGrotesk-Medium.woff") format("woff");
 }
 @font-face {
 	font-family: "Clash Display";
 	src: url("../fonts/ClashDisplay-Bold.woff2") format("woff2"),
-	url("../fonts/ClashDisplay-Bold.woff") format("woff");
+		url("../fonts/ClashDisplay-Bold.woff") format("woff");
 }
 
 ::-webkit-scrollbar {
@@ -64,7 +64,7 @@ body {
 		height: 8px;
 		background: $yellow;
 		width: 0%;
-		transition: width .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		transition: width 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	}
 }
 
@@ -169,7 +169,7 @@ body {
 		padding: 0.5rem 0;
 		border-radius: 0.5rem;
 		border: 4px solid transparent;
-		transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
 		&:hover {
 			background-color: black;
@@ -186,5 +186,22 @@ body {
 
 	100% {
 		transform: translate3d(var(--move-final), 0, 0);
+	}
+}
+
+@media (max-width: 640px) {
+	body {
+		overflow-y: auto;
+	}
+
+	.marquee-abs {
+		display: none;
+	}
+
+	.cards {
+		flex-direction: column;
+		position: unset;
+		padding: 10rem 0;
+		height: auto;
 	}
 }
