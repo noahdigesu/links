@@ -91,6 +91,7 @@ body .progress-bar {
 .squares img {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
+  opacity: .5;
 }
 
 .marquee-abs {
