@@ -62,7 +62,6 @@ body {
 		bottom: 0;
 		width: 100%;
 		height: 8px;
-		background: transparent;
 	}
 
 	/* The progress bar (scroll indicator) */
@@ -74,19 +73,25 @@ body {
 }
 
 .marquee-abs {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	position: absolute;
-	left: 6rem;
+	left: 0;
+	top: 0;
+	width: 30%;
 	height: 100%;
-	transform: rotate(-90deg);
 }
 
 .marquee-container {
 	z-index: 20;
-	position: relative;
+	position: absolute;
 	overflow: hidden;
 	--offset: -20vw;
 	--move-initial: calc(0% + var(--offset));
 	--move-final: calc(50% + var(--offset));
+	transform: rotate3d(0, 0, -1, 90deg);
+	transform-origin: center center;
 }
 
 .marquee {
