@@ -1,11 +1,6 @@
 $yellow: #f4ffaf;
 
 @font-face {
-	font-family: "Remboy";
-	src: url("../fonts/Remboy-Regular.woff2") format("woff2"),
-		url("../fonts/Remboy-Regular.woff") format("woff");
-}
-@font-face {
 	font-family: "Cabinet Grotesk";
 	src: url("../fonts/CabinetGrotesk-Medium.woff2") format("woff2"),
 		url("../fonts/CabinetGrotesk-Medium.woff") format("woff");
@@ -113,13 +108,9 @@ body {
 	animation-play-state: paused;
 }
 
-.marquee span {
-	color: $yellow;
-	font-size: 10rem;
-	font-family: "Remboy";
-	font-weight: normal;
-	font-style: normal;
+.marquee img {
 	min-width: 50%;
+	height: 8rem;
 }
 
 .cards-container {
