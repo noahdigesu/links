@@ -135,6 +135,8 @@ body .progress-bar {
           transform: translate3d(var(--move-initial), 0, 0);
   -webkit-animation: marquee 5s linear infinite;
           animation: marquee 5s linear infinite;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
 }
 
 .marquee span {
@@ -195,9 +197,7 @@ body .progress-bar {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  -webkit-filter: blur(1px);
-          filter: blur(1px);
+  right: 100%;
   border-top: 3px solid #f4ffaf;
 }
 
@@ -268,6 +268,11 @@ body .progress-bar {
           animation: slide-in-top 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) both;
 }
 
+.appear {
+  -webkit-animation: appear 0.3s linear forwards;
+          animation: appear 0.3s linear forwards;
+}
+
 .disappear {
   -webkit-animation: disappear 0.3s linear forwards;
           animation: disappear 0.3s linear forwards;
@@ -323,19 +328,37 @@ body .progress-bar {
 
 @-webkit-keyframes disappear {
   from {
-    border-width: 3px;
+    left: 0;
   }
   to {
-    border-width: 0;
+    left: 100%;
   }
 }
 
 @keyframes disappear {
   from {
-    border-width: 3px;
+    left: 0;
   }
   to {
-    border-width: 0;
+    left: 100%;
+  }
+}
+
+@-webkit-keyframes appear {
+  from {
+    right: 100%;
+  }
+  to {
+    right: 0;
+  }
+}
+
+@keyframes appear {
+  from {
+    right: 100%;
+  }
+  to {
+    right: 0;
   }
 }
 
