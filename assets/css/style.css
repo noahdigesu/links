@@ -91,7 +91,7 @@ body .progress-bar {
 .squares img {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .marquee-abs {
@@ -146,9 +146,24 @@ body .progress-bar {
   min-width: 50%;
 }
 
-.cards {
+.cards-container {
+  height: 100vh;
   position: absolute;
   left: 35%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cards {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -163,12 +178,30 @@ body .progress-bar {
       -ms-flex-pack: start;
           justify-content: flex-start;
   gap: 4rem;
-  height: 100vh;
+  overflow: hidden;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   color: white;
   padding: 0 6rem 0 0;
 }
 
-.card {
+.card-container {
+  position: relative;
+}
+
+.card-container .magic-line {
+  z-index: 21;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  -webkit-filter: blur(1px);
+          filter: blur(1px);
+  border-top: 3px solid #f4ffaf;
+}
+
+.card-container .card {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -193,10 +226,10 @@ body .progress-bar {
   -webkit-backdrop-filter: blur(2px);
           backdrop-filter: blur(2px);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  opacity: 0;
+  visibility: hidden;
 }
 
-.card p {
+.card-container .card p {
   font-family: "Cabinet Grotesk";
   font-weight: 500;
   margin: 1rem 0 1.5rem 0;
@@ -205,13 +238,13 @@ body .progress-bar {
   height: 12ch;
 }
 
-.card h2,
-.card a {
+.card-container .card h2,
+.card-container .card a {
   font-family: "Clash Display";
   font-weight: bold;
 }
 
-.card a {
+.card-container .card a {
   text-decoration: none;
   background-color: #f4ffaf;
   width: 100%;
@@ -224,15 +257,20 @@ body .progress-bar {
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.card a:hover {
+.card-container .card a:hover {
   background-color: black;
   color: #f4ffaf;
   border: 4px solid #f4ffaf;
 }
 
 .slide-in-top {
-  -webkit-animation: slide-in-top 1.3s cubic-bezier(0.075, 0.82, 0.165, 1) both;
-          animation: slide-in-top 1.3s cubic-bezier(0.075, 0.82, 0.165, 1) both;
+  -webkit-animation: slide-in-top 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) both;
+          animation: slide-in-top 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) both;
+}
+
+.disappear {
+  -webkit-animation: disappear 0.3s linear forwards;
+          animation: disappear 0.3s linear forwards;
 }
 
 @-webkit-keyframes marquee {
@@ -259,12 +297,12 @@ body .progress-bar {
 
 @-webkit-keyframes slide-in-top {
   from {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -20%, 0);
-            transform: translate3d(0, -20%, 0);
+    visibility: visible;
+    -webkit-transform: translate3d(0, -160%, 0);
+            transform: translate3d(0, -160%, 0);
   }
   to {
-    opacity: 1;
+    visibility: visible;
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
   }
@@ -272,14 +310,32 @@ body .progress-bar {
 
 @keyframes slide-in-top {
   from {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -20%, 0);
-            transform: translate3d(0, -20%, 0);
+    visibility: visible;
+    -webkit-transform: translate3d(0, -160%, 0);
+            transform: translate3d(0, -160%, 0);
   }
   to {
-    opacity: 1;
+    visibility: visible;
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
+  }
+}
+
+@-webkit-keyframes disappear {
+  from {
+    border-width: 3px;
+  }
+  to {
+    border-width: 0;
+  }
+}
+
+@keyframes disappear {
+  from {
+    border-width: 3px;
+  }
+  to {
+    border-width: 0;
   }
 }
 

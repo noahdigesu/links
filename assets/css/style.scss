@@ -79,7 +79,7 @@ body {
 
 	img {
 		transform: scale(1.05);
-		opacity: .5;
+		opacity: 0.5;
 	}
 }
 
@@ -121,70 +121,97 @@ body {
 	min-width: 50%;
 }
 
-.cards {
+.cards-container {
+	height: 100vh;
 	position: absolute;
 	left: 35%;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+}
+
+.cards {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 	justify-content: flex-start;
 	gap: 4rem;
-	height: 100vh;
+	overflow: hidden;
+	height: fit-content;
 	color: white;
 	padding: 0 6rem 0 0;
 }
 
-.card {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	height: fit-content;
-	width: 16rem;
-	background-color: rgba($color: #f4ffaf, $alpha: 0.04);
-	padding: 2rem;
-	background-color: rgba(244, 255, 175, 0.04);
-	border-radius: 1.3rem;
-	backdrop-filter: blur(2px);
-	border: 1px solid rgba(255, 255, 255, 0.2);
-	opacity: 0;
+.card-container {
+	position: relative;
 
-	p {
-		font-family: "Cabinet Grotesk";
-		font-weight: 500;
-		margin: 1rem 0 1.5rem 0;
-		width: 90%;
-		min-height: 12ch;
-		height: 12ch;
+	.magic-line {
+		z-index: 21;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		filter: blur(1px); // not sure about this
+		border-top: 3px solid $yellow;
 	}
 
-	h2,
-	a {
-		font-family: "Clash Display";
-		font-weight: bold;
-	}
+	.card {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: fit-content;
+		width: 16rem;
+		background-color: rgba($color: #f4ffaf, $alpha: 0.04);
+		padding: 2rem;
+		background-color: rgba(244, 255, 175, 0.04);
+		border-radius: 1.3rem;
+		backdrop-filter: blur(2px);
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		visibility: hidden;
 
-	a {
-		text-decoration: none;
-		background-color: $yellow;
-		width: 100%;
-		color: black;
-		text-align: center;
-		padding: 0.5rem 0;
-		border-radius: 0.5rem;
-		border: 4px solid transparent;
-		transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		p {
+			font-family: "Cabinet Grotesk";
+			font-weight: 500;
+			margin: 1rem 0 1.5rem 0;
+			width: 90%;
+			min-height: 12ch;
+			height: 12ch;
+		}
 
-		&:hover {
-			background-color: black;
-			color: $yellow;
-			border: 4px solid $yellow;
+		h2,
+		a {
+			font-family: "Clash Display";
+			font-weight: bold;
+		}
+
+		a {
+			text-decoration: none;
+			background-color: $yellow;
+			width: 100%;
+			color: black;
+			text-align: center;
+			padding: 0.5rem 0;
+			border-radius: 0.5rem;
+			border: 4px solid transparent;
+			transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+			&:hover {
+				background-color: black;
+				color: $yellow;
+				border: 4px solid $yellow;
+			}
 		}
 	}
 }
 
 .slide-in-top {
-	animation: slide-in-top 1.3s cubic-bezier(0.075, 0.82, 0.165, 1) both;
+	animation: slide-in-top 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) both;
+}
+
+.disappear {
+	animation: disappear 0.3s linear forwards;
 }
 
 @keyframes marquee {
@@ -199,13 +226,22 @@ body {
 
 @keyframes slide-in-top {
 	from {
-		opacity: 0;
-		transform: translate3d(0, -20%, 0);
+		visibility: visible;
+		transform: translate3d(0, -160%, 0);
 	}
 
 	to {
-		opacity: 1;
+		visibility: visible;
 		transform: translate3d(0, 0, 0);
+	}
+}
+
+@keyframes disappear {
+	from {
+		border-width: 3px;
+	}
+	to {
+		border-width: 0;
 	}
 }
 
