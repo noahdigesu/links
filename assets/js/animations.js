@@ -1,6 +1,6 @@
+// Cards
 const cards = document.querySelectorAll(".card");
 const magicLines = document.querySelectorAll(".magic-line");
-const marquee = document.querySelector(".marquee");
 
 [...magicLines].forEach(function (line, i) {
     setTimeout(function () {
@@ -17,8 +17,20 @@ const marquee = document.querySelector(".marquee");
 		[...magicLines][i].style.right = 0;
 		[...magicLines][i].classList.add("disappear");
 	}, i * 500 + 500 + 1500);
+});
 
-    setTimeout(() => {
-        marquee.style.animationPlayState = "running";
-    }, 500 + 500 + 1500 + [...cards].length);
+// Marquee
+
+const marquee = document.querySelector(".marquee");
+
+setTimeout(() => {
+	marquee.style.animationPlayState = "running";
+}, 500 + 500 + 1500 + [...cards].length);
+
+const marqueeLetters = document.querySelectorAll(".marquee svg path");
+
+[...marqueeLetters].forEach(function (letter, i) {
+	setTimeout(function () {
+		letter.classList.add("stroke-in");
+	}, i * 300);
 });

@@ -134,9 +134,32 @@ body .progress-bar {
           animation-play-state: paused;
 }
 
-.marquee img {
+.marquee span {
   min-width: 50%;
   height: 8rem;
+}
+
+.marquee span svg {
+  fill: transparent;
+}
+
+.marquee span svg.stroke {
+  -webkit-animation: fade-out 0s 2500ms both;
+          animation: fade-out 0s 2500ms both;
+}
+
+.marquee span svg.stroke:nth-child(1) path {
+  stroke-dasharray: 500;
+  stroke-dashoffset: -300;
+}
+
+.marquee span svg.filled {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  -webkit-animation: fade-in 1s 2500ms cubic-bezier(0.075, 0.82, 0.165, 1) both;
+          animation: fade-in 1s 2500ms cubic-bezier(0.075, 0.82, 0.165, 1) both;
 }
 
 .cards-container {
@@ -269,6 +292,11 @@ body .progress-bar {
           animation: disappear 0.3s linear forwards;
 }
 
+.stroke-in {
+  -webkit-animation: stroke-in 3s cubic-bezier(0.075, 0.82, 0.165, 1) both;
+          animation: stroke-in 3s cubic-bezier(0.075, 0.82, 0.165, 1) both;
+}
+
 @-webkit-keyframes marquee {
   from {
     -webkit-transform: translate3d(var(--move-initial), 0, 0);
@@ -318,38 +346,62 @@ body .progress-bar {
 }
 
 @-webkit-keyframes disappear {
-  from {
-    left: 0;
-  }
   to {
     left: 100%;
   }
 }
 
 @keyframes disappear {
-  from {
-    left: 0;
-  }
   to {
     left: 100%;
   }
 }
 
 @-webkit-keyframes appear {
-  from {
-    right: 100%;
-  }
   to {
     right: 0;
   }
 }
 
 @keyframes appear {
-  from {
-    right: 100%;
-  }
   to {
     right: 0;
+  }
+}
+
+@-webkit-keyframes stroke-in {
+  to {
+    stroke-dashoffset: 66;
+  }
+}
+
+@keyframes stroke-in {
+  to {
+    stroke-dashoffset: 66;
+  }
+}
+
+@-webkit-keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fade-out {
+  to {
+    visibility: hidden;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    visibility: hidden;
   }
 }
 
