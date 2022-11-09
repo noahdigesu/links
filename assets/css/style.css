@@ -136,27 +136,38 @@ body .progress-bar {
 
 .marquee span {
   min-width: 50%;
-  height: 8rem;
 }
 
 .marquee span svg {
-  fill: transparent;
+  height: 7rem;
 }
 
-.marquee span svg.stroke {
-  -webkit-animation: fade-out 0s 2500ms both;
-          animation: fade-out 0s 2500ms both;
+.marquee span.animated {
+  position: relative;
 }
 
-.marquee span svg.stroke:nth-child(1) path {
+.marquee span.animated svg.stroke {
+  -webkit-animation: fade-out 1s 2500ms both;
+          animation: fade-out 1s 2500ms both;
+  opacity: 1;
+}
+
+.marquee span.animated svg.stroke > path {
   stroke-dasharray: 500;
   stroke-dashoffset: -300;
+  outline-offset: -10px;
 }
 
-.marquee span svg.filled {
+.marquee span.animated svg.filled {
   position: absolute;
   left: 0;
   top: 0;
+  opacity: 0;
+  -webkit-animation: fade-in 1s 2500ms cubic-bezier(0.075, 0.82, 0.165, 1) both;
+          animation: fade-in 1s 2500ms cubic-bezier(0.075, 0.82, 0.165, 1) both;
+}
+
+.marquee span.hidden {
   opacity: 0;
   -webkit-animation: fade-in 1s 2500ms cubic-bezier(0.075, 0.82, 0.165, 1) both;
           animation: fade-in 1s 2500ms cubic-bezier(0.075, 0.82, 0.165, 1) both;
@@ -395,13 +406,13 @@ body .progress-bar {
 
 @-webkit-keyframes fade-out {
   to {
-    visibility: hidden;
+    opacity: 0;
   }
 }
 
 @keyframes fade-out {
   to {
-    visibility: hidden;
+    opacity: 0;
   }
 }
 

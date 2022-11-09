@@ -110,28 +110,39 @@ body {
 
 .marquee span {
 	min-width: 50%;
-	height: 8rem;
 
 	svg {
-		fill: transparent;
-		&.stroke {
-			&:nth-child(1) {
-				path {
+		height: 7rem;
+	}
+
+	&.animated {
+		position: relative;
+
+		svg {
+			&.stroke {
+				> path {
 					stroke-dasharray: 500;
 					stroke-dashoffset: -300;
+					outline-offset: -10px;
 				}
+				animation: fade-out 1s 2500ms both;
+				opacity: 1;
 			}
-			animation: fade-out 0s 2500ms both;
-		}
 
-		&.filled {
-			position: absolute;
-			left: 0;
-			top: 0;
-			opacity: 0;
-			animation: fade-in 1s 2500ms cubic-bezier(0.075, 0.82, 0.165, 1)
-				both;
+			&.filled {
+				position: absolute;
+				left: 0;
+				top: 0;
+				opacity: 0;
+				animation: fade-in 1s 2500ms cubic-bezier(0.075, 0.82, 0.165, 1)
+					both;
+			}
 		}
+	}
+
+	&.hidden {
+		opacity: 0;
+		animation: fade-in 1s 2500ms cubic-bezier(0.075, 0.82, 0.165, 1) both;
 	}
 }
 
@@ -284,7 +295,7 @@ body {
 
 @keyframes fade-out {
 	to {
-		visibility: hidden;
+		opacity: 0;
 	}
 }
 
