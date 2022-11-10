@@ -162,7 +162,6 @@ body {
 	align-items: center;
 	justify-content: flex-start;
 	gap: 4rem;
-	overflow: hidden;
 	height: fit-content;
 	color: white;
 	padding: 0 6rem 0 0;
@@ -170,6 +169,7 @@ body {
 
 .card-container {
 	position: relative;
+	overflow: clip;
 
 	.magic-line {
 		z-index: 21;
@@ -308,10 +308,17 @@ body {
 		display: none;
 	}
 
+	.cards-container {
+		position: unset;
+		justify-content: center;
+		align-items: unset;
+	}
+
 	.cards {
 		flex-direction: column;
 		position: unset;
 		padding: 10rem 0;
 		height: auto;
+		overflow: unset;
 	}
 }

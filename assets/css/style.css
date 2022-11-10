@@ -205,7 +205,6 @@ body .progress-bar {
       -ms-flex-pack: start;
           justify-content: flex-start;
   gap: 4rem;
-  overflow: hidden;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -215,6 +214,7 @@ body .progress-bar {
 
 .card-container {
   position: relative;
+  overflow: clip;
 }
 
 .card-container .magic-line {
@@ -423,6 +423,15 @@ body .progress-bar {
   .marquee-abs {
     display: none;
   }
+  .cards-container {
+    position: unset;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: unset;
+        -ms-flex-align: unset;
+            align-items: unset;
+  }
   .cards {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -431,6 +440,7 @@ body .progress-bar {
     position: unset;
     padding: 10rem 0;
     height: auto;
+    overflow: unset;
   }
 }
 /*# sourceMappingURL=style.css.map */
