@@ -26,3 +26,12 @@ function updateScrollProgressMobile() {
 	var scrolled = (winScroll / height) * 100;
 	document.getElementById("myBar").style.width = scrolled + "%";
 }
+
+// Arrows
+document.querySelector(".right").addEventListener("click", () => {
+	document.querySelector("html").scrollLeft += 400;
+});
+
+document.querySelector(".left").addEventListener("click", () => {
+	document.querySelector("html").scrollLeft -= 400;
+});
